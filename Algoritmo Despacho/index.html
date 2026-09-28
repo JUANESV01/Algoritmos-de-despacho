@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Planificación de CPU | Simulador</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="top"><span class="kicker">Sistemas Operativos / Planificación de procesos</span><button id="theme" class="ib" aria-label="Cambiar tema" title="Cambiar tema"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button></div>
+    <h1>Simulador de planificación de CPU</h1>
+    <p>Elige un algoritmo o compáralos todos. Cada resultado incluye el diagrama de Gantt, el <b>TE</b> (tiempo de espera) y el <b>TS</b> (tiempo en el sistema) de cada proceso, con sus promedios.</p>
+  </header>
+
+  <section class="card">
+    <h2><span class="n">01</span>Procesos</h2>
+    <p class="sub">Edita los valores. En Prioridad, un número menor significa mayor prioridad.</p>
+    <div class="scroll"><table><thead><tr><th>Proceso</th><th>Llegada</th><th>Ráfaga</th><th>Prioridad</th><th></th></tr></thead><tbody id="tb"></tbody></table></div>
+    <div class="row">
+      <button class="b" id="add"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Agregar proceso</button>
+      <button class="b" id="ej1">Cargar ejemplo</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2><span class="n">02</span>Algoritmo</h2>
+    <div class="tabs" id="tabs">
+      <button data-k="fifo">FIFO</button>
+      <button data-k="sjf">SJF</button>
+      <button data-k="prioridad">Prioridad</button>
+      <button data-k="rr">Round Robin</button>
+      <button data-k="todos" class="on">Todos</button>
+    </div>
+    <div class="row">
+      <label id="qwrap" class="q">Quantum <input type="number" id="q" min="1" value="2"></label>
+      <button class="b p" id="run">Simular</button>
+    </div>
+  </section>
+
+  <div id="out"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="js/algoritmos.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
